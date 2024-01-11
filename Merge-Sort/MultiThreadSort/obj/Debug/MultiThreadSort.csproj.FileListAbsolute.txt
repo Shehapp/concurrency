@@ -1,0 +1,20 @@
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\bin\Debug\MultiThreadSort.exe.config
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\bin\Debug\MultiThreadSort.exe
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\bin\Debug\MultiThreadSort.pdb
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.csproj.AssemblyReference.cache
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.Form1.resources
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.Properties.Resources.resources
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.csproj.GenerateResource.cache
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.csproj.CoreCompileInputs.cache
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.exe
+C:\Users\sheha\Desktop\OneDrive_1_1-5-2024\[OS'22] 8th Lab\TEMPLATE\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.pdb
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\bin\Debug\MultiThreadSort.exe.config
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\bin\Debug\MultiThreadSort.exe
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\bin\Debug\MultiThreadSort.pdb
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.csproj.AssemblyReference.cache
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.Form1.resources
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.Properties.Resources.resources
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.csproj.GenerateResource.cache
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.csproj.CoreCompileInputs.cache
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.exe
+C:\Users\sheha\Desktop\MultiThreadSort\MultiThreadSort\obj\Debug\MultiThreadSort.pdb
