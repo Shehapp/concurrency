@@ -129,19 +129,17 @@ namespace MultiThreadSort
         #region Semaphores
         
         //TODO: Define any required semaphore here
-
-
-        static Semaphore fsSemaphore;
-        static Semaphore seSemaphore;
-        static Semaphore fnshSemaphore;
-
+        static Semaphore []sortSemaphres;
+        static Semaphore doneSemaphore=new Semaphore(0);
         
         #endregion
 
         #region Threads
-
         //TODO: Define any required thread objects here
-
+        
+        static Thread[] sortThreads;
+        static Thread[] mergeThreads;
+        
         #endregion
 
         #region Sort Function
@@ -165,16 +163,25 @@ namespace MultiThreadSort
                  * 2) Create & Start TWO Merge Sort concurrent threads & ONE Merge thread
                  * 3) Use semaphores to handle any dependency or critical section
                  */
-                fsSemaphore = new Semaphore(0);
-                seSemaphore = new Semaphore(0);
-                fnshSemaphore = new Semaphore(0);
-                Thread t1 = new Thread(MSortMT);
-                Thread t2 = new Thread(MSortMT);
-                Thread t3 = new Thread(MergeMT);
-                t1.Start(Params2Object(array, s, m, (s+m)/2, node_idx));
-                t2.Start(Params2Object(array, m + 1, e, (m+1+e)/2, node_idx));
-                t3.Start(Params2Object(array, s, e, m, node_idx));
-                fnshSemaphore.Wait();
+
+                sortSemaphres = new Semaphore[2];
+                sortThreads = new Thread[2];
+                int ss = 1, ee = e / 2;
+                for (int i = 0; i < 2; i++)
+                {
+                    sortSemaphres[i] = new Semaphore(0);
+                    
+                    sortThreads[i]=new Thread(MSortMT);
+                    sortThreads[i].Start(Params2Object(array, ss, ee, i, node_idx));
+                    ss += e / 2;
+                    ee += e / 2;
+                }
+                
+                mergeThreads = new Thread[1];
+                mergeThreads[0]=new Thread(MergeMT);
+                mergeThreads[0].Start(Params2Object(array, s, e, m, node_idx));
+                
+                doneSemaphore.Wait();
             }
 
             #endregion
@@ -215,8 +222,7 @@ namespace MultiThreadSort
             if (NumMergeSortThreads == 2) //TASK 2
             {
                 //TODO: Use semaphores to handle any dependency or critical section
-               if(s==1)fsSemaphore.Signal();
-               else seSemaphore.Signal();
+                sortSemaphres[m].Signal(); // id of cur thread
             }
 
             #endregion
@@ -249,10 +255,10 @@ namespace MultiThreadSort
             if (NumMergeSortThreads == 2) //TASK 2
             {
                 //TODO: Use semaphores to handle any dependency or critical section
-                fsSemaphore.Wait();
-                seSemaphore.Wait();
+                sortSemaphres[0].Wait();
+                sortSemaphres[1].Wait();
                 Merge(A, s, m, e);
-                fnshSemaphore.Signal();
+                doneSemaphore.Signal();
             }
 
             #endregion
