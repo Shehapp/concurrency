@@ -24,6 +24,7 @@ namespace MultiThreadSort
 
         int[] array = null;
         int N = 32000000;
+        int M = 2;
         INIT_METHOD initMethod = INIT_METHOD.RANDOM;
         
         private bool IsSorted(int[] array)
@@ -103,6 +104,7 @@ namespace MultiThreadSort
                     break;
             }
             txtArraySize.Text = N.ToString();
+            txtThreads.Text = M.ToString();
         }
         private void btnSeqRun_Click(object sender, EventArgs e)
         {
@@ -134,9 +136,10 @@ namespace MultiThreadSort
         private void btMTRun_Click(object sender, EventArgs e)
         {
             N = int.Parse(txtArraySize.Text);
+            M = int.Parse(txtThreads.Text);
             array = CreateAndInitializeArray(N, initMethod);
             Stopwatch sw = Stopwatch.StartNew();
-            MergeSort.SortMT(array);
+            MergeSort.SortMT(array, M);
             sw.Stop();
             bool isSorted = IsSorted(array);
             if (isSorted)

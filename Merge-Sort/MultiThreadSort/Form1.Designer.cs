@@ -49,8 +49,10 @@
             this.txtSpeedup = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnTest = new System.Windows.Forms.Button();
             this.txtTestRes = new System.Windows.Forms.TextBox();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.txtThreads = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -287,6 +289,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Test Encapsulate/Extract Params";
             // 
+            // txtTestRes
+            // 
+            this.txtTestRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTestRes.ForeColor = System.Drawing.Color.Black;
+            this.txtTestRes.Location = new System.Drawing.Point(256, 45);
+            this.txtTestRes.Name = "txtTestRes";
+            this.txtTestRes.Size = new System.Drawing.Size(199, 34);
+            this.txtTestRes.TabIndex = 7;
+            this.txtTestRes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // btnTest
             // 
             this.btnTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -298,21 +310,32 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
-            // txtTestRes
+            // txtThreads
             // 
-            this.txtTestRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTestRes.ForeColor = System.Drawing.Color.Black;
-            this.txtTestRes.Location = new System.Drawing.Point(256, 45);
-            this.txtTestRes.Name = "txtTestRes";
-            this.txtTestRes.Size = new System.Drawing.Size(199, 34);
-            this.txtTestRes.TabIndex = 7;
-            this.txtTestRes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtThreads.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtThreads.Location = new System.Drawing.Point(181, 52);
+            this.txtThreads.Name = "txtThreads";
+            this.txtThreads.Size = new System.Drawing.Size(193, 34);
+            this.txtThreads.TabIndex = 12;
+            this.txtThreads.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(62, 58);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 25);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Threads";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 532);
+            this.Controls.Add(this.txtThreads);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.txtSpeedup);
             this.Controls.Add(this.label4);
@@ -334,8 +357,10 @@
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.TextBox txtThreads;
+        private System.Windows.Forms.Label label7;
 
         #endregion
 
@@ -364,4 +389,3 @@
         private System.Windows.Forms.Button btnTest;
     }
 }
-
