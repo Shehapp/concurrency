@@ -6,5 +6,5 @@
   
 ## Plane Reservation
 ![](img/problem.png)
-[read the readme](https://github.com/Shehapp/concurrency/blob/main/Merge-Sort/README.md)
+[read the readme](https://github.com/Shehapp/concurrency/blob/main/AirplaneReservation/README.md)
   
