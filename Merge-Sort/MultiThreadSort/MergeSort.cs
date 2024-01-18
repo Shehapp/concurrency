@@ -181,7 +181,7 @@ namespace MultiThreadSort
         static int NearestMultipleOf2(int n)
         {
             int i = 1;
-            while (i < n)
+            while (i *2=< n)
             {
                 i *= 2;
             }

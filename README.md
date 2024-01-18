@@ -9,6 +9,8 @@
 [readme](https://github.com/Shehapp/concurrency/blob/main/AirplaneReservation/README.md)
 
 ## a bunch of bad Leetcode problems
+[Leetcode problems](https://leetcode.com/tag/concurrency/)
+
 ![](img/ok.png)
 
   
