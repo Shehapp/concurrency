@@ -177,7 +177,7 @@ namespace MultiThreadSort
             }
         }
 
-        // ex: if n=5 return 8
+        // ex: if n=5 return 4
         static int NearestMultipleOf2(int n)
         {
             int i = 1;
