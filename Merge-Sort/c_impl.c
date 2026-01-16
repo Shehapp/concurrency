@@ -8,7 +8,7 @@
 
 #define THREADED
 #define ARR_SIZE 100000000
-#define THREAD_COUNT 1
+#define THREAD_COUNT 8
 
 typedef struct 
 {
@@ -16,14 +16,12 @@ typedef struct
     int end;
     int *arr;
     int thrd_id;
-    struct semapone **semapone_arr;
 }info;
 
-info* create_info(int *arr, int start, int end, int node, struct semapone **semapone_arr)
+info* create_info(int *arr, int start, int end, int node)
 {
     info *_info = malloc(sizeof(*_info));
     _info->arr = arr;
-    _info->semapone_arr = semapone_arr;
     _info->start = start;
     _info->end = end;
     _info->thrd_id = node;
@@ -73,50 +71,33 @@ void sort(int *arr, int size)
     merge_sort(arr, 0, size - 1);
 }
 
-int merge_multithreaded(void *args)
+int run_thrds(void *args)
 {
     info *_info = (info *)args;
-    semapone_wait(_info->semapone_arr[_info->thrd_id * 2]);
-    semapone_wait(_info->semapone_arr[_info->thrd_id * 2 + 1]);
-    merge(_info->arr, _info->start, _info->end);
-    semapone_signal(_info->semapone_arr[_info->thrd_id]);
-    free(_info);
-    return thrd_success;
-}
 
-int merge_sort_multithreaded(void *args)
-{
-    info *_info = (info *)args;
-    merge_sort(_info->arr, _info->start, _info->end);
-    semapone_signal(_info->semapone_arr[_info->thrd_id]);
+    if(_info->start == _info->end)
+        goto free;
+
+    if(THREAD_COUNT <= _info->thrd_id)
+    {
+        merge_sort(_info->arr, _info->start, _info->end);
+        goto free;
+    }
+
+    thrd_t thr1, thrd2;
+    int mid = (_info->start + _info->end) / 2;
+    thrd_create(&thr1, run_thrds, (void *)create_info(_info->arr, _info->start, mid, _info->thrd_id * 2));
+    thrd_create(&thrd2, run_thrds, (void *)create_info(_info->arr, mid + 1, _info->end, _info->thrd_id * 2 + 1));
+    thrd_join(thr1, NULL);
+    thrd_join(thrd2, NULL);
+    merge(_info->arr, _info->start, _info->end);
+free:
     free(_info);
     return thrd_success;
-}
-void run_thrds(int *arr, int start, int end, int node, struct semapone **semapone_arr)
-{
-    thrd_t thrd;
-    if(THREAD_COUNT <= node)
-    {
-        thrd_create(&thrd, merge_sort_multithreaded, (void *)create_info(arr, start, end, node, semapone_arr));
-        return;
-    }
-    thrd_create(&thrd, merge_multithreaded, (void *)create_info(arr, start, end, node, semapone_arr));
-    int mid = (start + end) / 2;
-    run_thrds(arr, start, mid, node * 2, semapone_arr);
-    run_thrds(arr, mid + 1, end, node * 2 + 1, semapone_arr);
 }
 void sort_multithreaded(int *arr, int size)
 {
-    struct semapone *semapone_arr[THREAD_COUNT * 2];
-    for(int i = 0; i < THREAD_COUNT * 2; i++)
-        semapone_arr[i] = semapone_create(0);
-
-    run_thrds(arr, 0, size - 1, 1, semapone_arr);
-
-    semapone_wait(semapone_arr[1]);
-
-    for(int i = 0; i < THREAD_COUNT * 2; i++)
-        semapone_destroy(semapone_arr[i]);
+    run_thrds((void *)create_info(arr, 0, size - 1, 1));
 }
 
 int main(void)
@@ -146,8 +127,8 @@ user    0m25.144s
 sys     0m0.472s
 
 8 threads 
-real    0m5.105s
-user    0m41.159s
-sys     0m0.942s
+real    0m3.865s
+user    0m15.775s
+sys     0m0.699s
 
 */
